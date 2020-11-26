@@ -40,11 +40,11 @@ function upload_car2() {
     ctx.drawImage(car2_img, x_car2, y_car2, car2_width, car2_height);
 }
 
-window.addEventListner("keydown", my_keydown_car1);
+window.addEventListener("keydown", my_keydown_car1);
 
 function my_keydown_car1(e) {
-    var key_press = e.keycode;
-    console.log(key_press);
+    var keypress = e.keyCode;
+    console.log(keypress);
 
     if (keypress == "37") {
         Left();
@@ -61,23 +61,103 @@ function my_keydown_car1(e) {
     }
 }
 
-window.addEventListner("keydown", my_keydown_car2);
+function Left() {
+    if (x_car1 >= 0) {
+        x_car1 -= 2.5;
+        console.log("CAR_1-X =" + x_car1 + " ; " + "CAR_1-Y =" + y_car1 + " ;");
+        upload_background();
+        upload_car1();
+        upload_car2();
+    }
+}
+
+function Right() {
+    if (x_car1 <= (canvas.width - 100)) {
+        x_car1 += 2.5;
+        console.log("CAR_1-X =" + x_car1 + " ; " + "CAR_1-Y =" + y_car1 + " ;");
+        upload_background();
+        upload_car1();
+        upload_car2();
+    }
+}
+
+function Up() {
+    if (y_car1 >= 5) {
+        y_car1 -= 2.5;
+        console.log("CAR_1-X =" + x_car1 + " ; " + "CAR_1-Y =" + y_car1 + " ;");
+        upload_background();
+        upload_car1();
+        upload_car2();
+    }
+}
+
+function Down() {
+    if (y_car1 <= (canvas.height - 105)) {
+        y_car1 += 2.5;
+        console.log("CAR_1-X =" + x_car1 + " ; " + "CAR_1-Y =" + y_car1 + " ;");
+        upload_background();
+        upload_car1();
+        upload_car2();
+    }
+}
+
+window.addEventListener("keydown", my_keydown_car2);
 
 function my_keydown_car2(e) {
-    var key_press = e.keycode;
+    var key_press = e.keyCode;
     console.log(key_press);
 
-    if (keypress == "65") {
-        Left();
-        console.log("Left");
-    } else if (keypress == "87") {
-        Up();
-        console.log("Up")
-    } else if (keypress == "68") {
-        Right();
-        console.log("Right")
-    } else if (keypress == "83") {
-        Down();
-        console.log("Down")
+    if (key_press == "65") {
+        A_btn();
+        console.log("A");
+    } else if (key_press == "87") {
+        W_btn();
+        console.log("W")
+    } else if (key_press == "68") {
+        D_btn();
+        console.log("D")
+    } else if (key_press == "83") {
+        S_btn();
+        console.log("S")
+    }
+}
+
+function A_btn() {
+    if (x_car2 >= 0) {
+        x_car2 -= 2.5;
+        console.log("CAR_2-X =" + x_car2 + " ; " + "CAR_2-Y =" + y_car2 + " ;");
+        upload_background();
+        upload_car1();
+        upload_car2();
+    }
+}
+
+function D_btn() {
+    if (x_car2 <= (canvas.width - 100)) {
+        x_car2 += 2.5;
+        console.log("CAR_2-X =" + x_car2 + " ; " + "CAR_2-Y =" + y_car2 + " ;");
+        upload_background();
+        upload_car1();
+        upload_car2();
+    }
+}
+
+function W_btn() {
+    if (y_car2 >= 5) {
+        y_car2 -= 2.5;
+        console.log("CAR_2-X =" + x_car2 + " ; " + "CAR_2-Y =" + y_car2 + " ;");
+        upload_background();
+        upload_car1();
+        upload_car2();
+    }
+}
+
+function S_btn() {
+    if (y_car2 <= (canvas.height - 105)) {
+        y_car2 += 2.5;
+        console.log("CAR_2-X =" + x_car2 + " ; " + "CAR_2-Y =" + y_car2 + " ;");
+        upload_background();
+        upload_car1();
+        upload_car2();
     }
 }
